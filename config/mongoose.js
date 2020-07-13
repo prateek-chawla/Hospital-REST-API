@@ -1,12 +1,11 @@
 // Set up DB
 const mongoose = require("mongoose");
 
-const MONGO_CONNECTION_STRING = require("../keys").MONGO_CONNECTION_STRING;
-
 // Connect to MongoDB
-mongoose.connect(MONGO_CONNECTION_STRING, {
+mongoose.connect(process.env.MONGO_CONNECTION_STRING, {
 	useUnifiedTopology: true,
 	useNewUrlParser: true,
+	useCreateIndex: true,
 });
 
 const db = mongoose.connection;
